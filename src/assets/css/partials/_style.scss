@@ -53,3 +53,127 @@ section, div.section {
         }
     }
 }
+
+$animation-time: 2s;
+$animation-count: 1;
+
+.change-background {
+    background-image: url('../img/0_final.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: changeBg;
+    animation-duration: $animation-time;
+    animation-iteration-count: $animation-count;
+    transition-timing-function: linear;
+    // width:143px;
+    // height:100px;
+    overflow: hidden;
+}
+
+@keyframes changeBg {
+    0%, 74% {background-image: url('../img/0_1.jpg');}
+    75%,98%  {background-image: url("../img/0_1.jpg");}
+    80%,90% {background-image: url("../img/0_2.jpg");}
+    82%, 76% {background-image: url('../img/0_1.jpg');}
+    85%,79% {background-image: url("../img/0_3.jpg");}
+    95%,85% {background-image: url("../img/0_4.jpg");}
+    92%,99%  {background-image: url("../img/0_5.jpg");}
+    100%  {background-image: url("../img/0_final.jpg");}
+ }
+
+ .wrapper{
+    @include flexbox;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($black, .2);
+    animation-name: bodyLight;
+    animation-duration: 1s;
+    animation-iteration-count: 5;
+    transition-timing-function: linear;
+  }
+  @keyframes bodyLight{
+    30%{
+      filter: invert(14%);
+    }
+    40%{
+      filter: invert(10%);
+    }
+    50%{
+      filter: invert(7%);
+    }
+    60%{
+      filter: invert(10%);
+    }
+    70%{
+      filter: invert(12%);
+    }
+    80%{
+      filter: invert(9%);
+    }
+    90%{
+      filter: invert(14%);
+    }
+    95%{
+      filter: invert(11%);
+    }
+    100%{
+      filter: invert(0%);
+    }
+  }
+
+
+.content {
+    text-align: center;
+    .tagline {
+        font-family: "Georgia";
+        color:#FF0000;
+        margin-bottom: 20px;
+        animation-name: taglineTransform;
+        animation-duration: $animation-time;
+        animation-iteration-count: $animation-count;
+        transition-timing-function: linear;
+    }
+    @keyframes taglineTransform {
+        1%, 95% {font-family: "Raleway";
+            color:$white;
+        }
+        100% {
+            font-family: 'Georgia';
+            color: #FF0000;
+        }
+    }
+
+    h1 {
+        font-size: 63px;
+        font-family: 'Arial', Courier, monospace;
+        color: #FF00CE;
+        font-weight: 900;
+        line-height: 1.2em;
+        max-width: 800px;
+        animation-name: headerTransform;
+        animation-duration: $animation-time;
+        animation-iteration-count: $animation-count;
+        transition-timing-function: linear;
+    }
+    @keyframes headerTransform {
+        1%, 70% {font-family: "Montserrat";
+            color:$white;
+        }
+        75%, 94% {font-family:'Times New Roman', Times, serif;
+            color:$white;
+        }
+        80%, 85% {
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            color:$white;
+        }
+        94%, 84% {
+            color:#45FF00;
+        }
+        0%, 95%, 100% {
+            font-family: 'Arial', Courier, monospace;
+            color: #FF00CE;
+        }
+    }
+}
