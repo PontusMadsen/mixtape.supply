@@ -1,7 +1,7 @@
 {
-  "name": "white-label",
-  "version": "1.0.0",
-  "description": "Default project structure",
+  "name": "mixtape-supply",
+  "version": "1.0.3",
+  "description": "mixtape.supply",
   "main": "index.js",
   "scripts": {
     "start": "gulp watch",
