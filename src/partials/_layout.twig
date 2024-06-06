@@ -24,6 +24,12 @@
         <link rel="stylesheet" href="assets/css/reizoko.css" type="text/css">
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
+        <link rel="prefetch" href="assets/img/0_1.jpg" />
+        <link rel="prefetch" href="assets/img/0_2.jpg" />
+        <link rel="prefetch" href="assets/img/0_3.jpg" />
+        <link rel="prefetch" href="assets/img/0_4.jpg" />
+        <link rel="prefetch" href="assets/img/0_5.jpg" />
+        <link rel="prefetch" href="assets/img/0_final.jpg" />
 
         {# Defaults set in site-info.json #}
         <meta property="og:type" content="{{ ogType }}">
@@ -44,6 +50,10 @@
         {% block page %}{% endblock %}
 
         <script defer type="text/javascript" src="assets/js/external/ofi.min.js"></script>
+        <script src="assets/js/external/wow.js"></script>
+        <script>
+            new WOW().init();
+        </script>
         <script defer type="text/javascript" src="assets/js/index.min.js"></script>
     </body>
 </html>
