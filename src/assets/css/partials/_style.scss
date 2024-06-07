@@ -54,9 +54,49 @@ section, div.section {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/0_1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #ffffff; /* Background color of the preloader */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it is on top of all other elements */
+}
+
+.loader {
+    font-size: 24px;
+    font-weight: bold;
+    color: $white; /* Text color */
+}
+
+
+
+
+
+
 $animation-time: 2s;
 $animation-count: 1;
 $animation-delay: 0s;
+$background: black;
+$foreground: white;
 
 .change-background {
     background-image: url('../img/0_final.jpg');
@@ -138,6 +178,7 @@ $animation-delay: 0s;
         animation-iteration-count: $animation-count;
         transition-timing-function: linear;
         animation-delay: $animation-delay;
+        position: relative;
     }
     @keyframes taglineTransform {
         1%, 95% {font-family: "Raleway";
@@ -155,6 +196,8 @@ $animation-delay: 0s;
         color: #FF00CE;
         font-weight: 900;
         line-height: 1.2em;
+        position: relative;
+        text-align: left;
     }
 
     h1 {
@@ -169,11 +212,22 @@ $animation-delay: 0s;
         animation-iteration-count: $animation-count;
         transition-timing-function: linear;
         animation-delay: $animation-delay;
+        position: relative;
+        // &:after {
+        //     @include gitchText(2px, 'Get Ready to Rewind: Your Spotify Playlists on Cassette', #a0448d, 800px);
+        // }
+        // &:before {
+        //     @include gitchText(-2px, 'Get Ready to Rewind: Your Spotify Playlists on Cassette', #E214BA, 800px);
+        // }
     }
     @keyframes headerTransform {
         0% {opacity: 0;}
         20% {opacity: 1;}
-        1%, 70% {font-family: "Montserrat";
+        1%, 70% {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
             color:$white;
         }
         75%, 94% {font-family:'Times New Roman', Times, serif;
@@ -249,6 +303,28 @@ $animation-delay: 0s;
             animation-iteration-count: $animation-count;
             transition-timing-function: linear;
             animation-delay: $animation-delay;
+            &:hover {
+                // background: #9b9797;
+                // border: 1px solid #707070;
+                // // margin-top: 2px;
+                // color:$black;
+                // box-shadow: 
+                // inset $white 2px 2px 0px 0px, 
+                // inset rgba($black, .6) -2px -2px 0px 0px; 
+                // display: inline-block;
+                cursor: pointer;
+            }
+            &:active {
+                background: #9b9797;
+                border: 1px solid #707070;
+                // margin-top: 2px;
+                color:$black;
+                box-shadow: 
+                inset $white 1px 1px 0px 0px, 
+                inset rgba($black, .6) -2px -2px 0px 0px; 
+                display: inline-block;
+                cursor: pointer;
+            }
             @keyframes buttonTransform {
                 1%, 70% {
                     background: #3FCF98;
@@ -293,6 +369,11 @@ $animation-delay: 0s;
             animation-iteration-count: $animation-count;
             transition-timing-function: linear;
             animation-delay: $animation-delay;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+            font-weight: regular;
+            color:$black;
+            padding-left: 10px;
             @keyframes inputTransform {
                 1%, 70% {
                     height:66px;
@@ -318,4 +399,74 @@ $animation-delay: 0s;
             }
         }
     }
+    .links {
+        margin-top: 30px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        ul {
+            @include flexbox;
+            align-items: center;
+            flex-direction: column;
+            li {
+                display: inline-block;
+                a {
+                    font-size: 16px;
+                    font-family: Georgia, 'Times New Roman', Times, serif;
+                    color: #FFE200;
+                    display: inline-block;
+                    margin-bottom: 10px;
+                    line-height: 1.25em;
+                    text-decoration: underline;
+                    animation-name: ahrefTransform;
+                    animation-duration: $animation-time;
+                    animation-iteration-count: $animation-count;
+                    transition-timing-function: linear;
+                    animation-delay: $animation-delay;
+                    height: 25px;
+                    @include flexbox;
+                    align-items: center;
+                    justify-content: center;
+                    padding-left: 50px;
+                    position: relative;
+                    background-image: url('../img/6wTp-3431942153.gif');
+                    background-size: 40px 25px;
+                    background-position: 0% 50%;
+                    background-repeat: no-repeat;
+                    // display: inline-block;
+                    @keyframes ahrefTransform {
+                        1%, 70% {
+                            background-image: none;
+                            font-family: "Raleway";
+                            color:$white;
+                            font-size: 18px;
+                            padding-left: 0px;
+                        }
+                        75%, 94% {font-family:'Times New Roman', Times, serif;
+                            color:$white;
+                        }
+                        80%, 85% {
+                            font-family:Georgia, 'Times New Roman', Times, serif;
+                            color:$white;
+                        }
+                        94%, 84% {
+                            color:#45FF00;
+                        }
+                        0%, 95%, 100% {
+                            font-family: 'Arial', Courier, monospace;
+                            color: #FF00CE;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+
+
+@keyframes glitch {
+    $steps: 90;
+    @for $i from 0 through $steps{
+      #{percentage($i * (1 / $steps))}{
+        clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+      }
+    }
+  }

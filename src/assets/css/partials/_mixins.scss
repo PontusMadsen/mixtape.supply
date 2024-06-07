@@ -796,3 +796,27 @@
  -webkit-transform: none !important;
  transform: none !important;
 }
+
+// ----------------------------
+// EXPERIMENTAL
+// ----------------------------
+
+@mixin gitchText($offset, $text, $tcolor, $maxwidth) {
+  content: $text;
+  position: absolute;
+  left: $offset;
+  top: $offset;
+  width:100%;
+  clip: rect(0, 900px, 0, 0); 
+  background-color: $black;
+  // color: #bada55;
+  color: $tcolor;
+  max-width: $maxwidth;
+  animation: glitch 1s infinite alternate-reverse;
+  animation-delay: 4s;
+  // height: 100%;
+  opacity: .5;
+  @include flexbox;
+  align-items: center;
+  justify-content: center;
+}

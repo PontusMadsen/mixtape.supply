@@ -5,16 +5,27 @@
 
 {% block page %}
 	{# Start writing code! #}
-	<div class="wrapper">
+	<div id="preloader">
+        <div class="loader">Loading...</div>
+    </div>
+	<div class="wrapper" id="content" style="display: none;">
 		<div class="content">
 			<div class="tagline">mixtape supply™</div>
-			<h1 class="wow animate__animated animate__fadeIn">Get Ready to Rewind: Your Spotify Playlists on Cassette</h1>
-			<p>Relive the nostalgia of the 90’s by transforming your digital music into physical cassette tapes.</p>
+			<h1 class="">Get Ready to Rewind: Your Spotify Playlists on Cassette</h1>
+			{# <h2 class="">Get  on Cassette</h2> #}
+			<p>Relive the nostalgia of the 90’s by transforming your digital playlist into a physical cassette tape.</p>
 			<div class="form-holder">
 				<form action="">
 					<input type="text">
 					<button>Join the waitlist</button>
 				</form>
+			</div>
+			<div class="links">
+				<ul>
+					<li><a href="">Share this page</a></li>
+					<li><a href="">How does it work?</a></li>
+					<li><a href="">Contact us</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
