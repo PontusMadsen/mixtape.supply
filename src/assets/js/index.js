@@ -46,3 +46,41 @@ window.addEventListener('load', function() {
         hidePreloader();
     }
 });
+
+$(document).ready(function() {
+    $("#emailForm").submit(function(event) {
+        event.preventDefault();
+        
+        const email = $("#email").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "save_email.php",
+            data: { email: email },
+            dataType: "json",
+            success: function(response) {
+                if (response.success) {
+                    // Show success message
+                    $("#successMessage").show();
+                    $("#errorMessage").hide();
+                    $("#email").val('');
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        $("#successMessage").hide();
+                    }, 5000);
+                } else {
+                    // Show error message
+                    $("#errorMessage").text(response.message || 'Error submitting email. Please try again.');
+                    $("#errorMessage").show();
+                    $("#successMessage").hide();
+                }
+            },
+            error: function() {
+                $("#errorMessage").text('Server error. Please try again later.');
+                $("#errorMessage").show();
+                $("#successMessage").hide();
+            }
+        });
+    });
+});

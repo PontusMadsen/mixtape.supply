@@ -15,15 +15,21 @@
 			{# <h2 class="">Get  on Cassette</h2> #}
 			<p>Relive the nostalgia of the 90’s by transforming your digital playlist into a physical cassette tape.</p>
 			<div class="form-holder">
-				<form action="">
-					<input type="text">
-					<button>Join the waitlist</button>
+				<form id="emailForm" class="email-form">
+					<input type="email" id="email" name="email" required placeholder="Enter your email address">
+					<button type="submit">Join the waitlist</button>
 				</form>
+				<div id="successMessage" class="message success">
+					Thank you for subscribing!
+				</div>
+				<div id="errorMessage" class="message error">
+					There was an error submitting your email. Please try again.
+				</div>
 			</div>
 			<div class="links">
 				<ul>
-					<li><a href="">Share this page</a></li>
-					<li><a href="">How does it work?</a></li>
+					<!--li><a href="">Share this page</a></li>
+					<li><a href="">How does it work?</a></li-->
 					<li><a href="">Contact us</a></li>
 				</ul>
 			</div>
